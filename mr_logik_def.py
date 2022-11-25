@@ -26,7 +26,7 @@ def gen_number():
             continue
         else:
             print("Secret number is: " + (str(secret_number)))
-            # Comment this line to hide "Secret number".
+            # Please comment line 28 to hide "Secret number".
             return secret_number
             break
 
@@ -45,6 +45,7 @@ def game(secret_number):
                                             "\nNow let´s try your guess:"))
                 except ValueError:
                     print("Please enter digits and not characters")
+                    continue
                 if user_number <= 1000:
                     print("Secret number is higher 1000")
                 elif user_number >= 10000:

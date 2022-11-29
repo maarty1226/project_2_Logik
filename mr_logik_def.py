@@ -7,7 +7,7 @@ discord: Maarty#1226
 
 import random
 
-Welcome = "\nWelcome in Bulls and Cows game (Engeto project N.2)\n"
+Welcome = "\nWelcome in Bulls and Cows game\n"
 Rules = "\nHello player, your task is to guess a secret number in less then 20 tries!\n"
 Separator = "="
 print(Welcome)
@@ -15,11 +15,9 @@ print(len(Welcome) * Separator)
 print(Rules)
 print(len(Rules) * Separator)
 
-input("Press Enter to continue...")
-
 
 def gen_number():
-    """Generates secret number with unique digits using random.randrange function"""
+    """Generates secret number with unique digits using random.randrange"""
     while True:
         secret_number = (random.randrange(1001,9999))
         if len(str(secret_number)) != len(set(str(secret_number))):
@@ -63,8 +61,8 @@ def game(secret_number):
             """
             Checks player´s input against randomly generated secret number and when player is not
             out of number of tries function returns:
-            cow -- a number for digit guessed correctly and at a correct place.
-            bull -- a number for digit guessed but at a wrong place.
+            Bull -- a number for digit guessed correctly and at a correct place.
+            Cow -- a number for digit guessed but at a wrong place.
             """
             cow_bull = [0, 0]
             for i, j in zip((str(secret_number)), (str(user_number))):
@@ -88,13 +86,13 @@ def game(secret_number):
         def result(cow_bull, secret_number, user_number, tries):
             """Reports result from user´s guesses"""
             if secret_number == user_number:
-                    print("Wow, you won, 4 Bulls! Your guessed number was correct.")
+                    print("Wow, you won, 4 Bulls!")
                     print("Secret number was: " + (str(secret_number)) +
                           " You needed " + (str(tries)) + " tries to find it!")
                     if tries < 5:
                         print("Great job!")
                     elif tries > 5 and 10 > tries:
-                        print("Good job, I´d bet next you´ll do better!")
+                        print("Good job, Next you´ll do better!")
                     else:
                         print("Nothing special, but don´t worry.")
                     return True
@@ -113,7 +111,7 @@ def game(secret_number):
 
 
 def new_game():
-        """Now we will ask if player wants to restart the game or not."""
+        """Function for game restart."""
         restart = input("Do want to play again?(y/n)")
         if restart == "y" or restart == "Y":
             print("Game restarted...")
